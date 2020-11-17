@@ -46,7 +46,15 @@ public class SungJukV3 {
             eng[i] = sc.nextInt();
             System.out.print("수학 점수를 입력하세요: ");
             mat[i] = sc.nextInt();
-            System.out.printf("");
+//            sc.skip("\r\n|[\n\r]"); // 아래 설명
+            
+            // 수학 성적 입력시 같이 입력된 enter키가
+            //다음 데이터(이름) 입력시 입력값으로
+            //자동으로 전달됨
+            //그러한 상황을 해결하기 위해
+            //미리 엔터키를 제거하는 코드 삽입
+
+            //nextInt가 아닌 문자로 받으면 위 skip라인은 안써도 됨
         }
 
         for (int i = 0; i < 3; i++) {
