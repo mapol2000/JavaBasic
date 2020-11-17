@@ -54,19 +54,8 @@ public class SungJukV2 {
             default: grd = '가';
         }
 
-        // String.format(형식지정자, 변수들)
-        mean = Double.parseDouble(String.format("%.1f", mean));
-
-        //결과 출력
-        System.out.println("이름: " + name);
-        System.out.println("국어: " + kor);
-        System.out.println("영어: " + eng);
-        System.out.println("수학: " + mat);
-        System.out.println("-------------");
-        System.out.println("총점: " + sum);
-        System.out.println("평균: " + mean);
-        //System.out.printf("평균: %.1f\n", mean);
-        System.out.println("학점: " + grd);
+        //출력
+        System.out.printf("%s 학생의 총점은 %d점, 평균은 약 %.1f점이며 학점은 %c입니다 ",name, sum, mean, grd);
 
     }
 }
