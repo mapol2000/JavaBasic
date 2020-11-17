@@ -29,8 +29,10 @@ public class SungJukV2b {
         int eng = 0;
         int mat = 0;
         int sum = 0;
-        double mean = 0.0;
-        char grd = '가';
+        double mean;
+        char grd;
+        String fmt = "이름: %s\n국어: %d\n 영어: %d\n 수학: %d\n 총점: %d\n 평균: %f\n 학점: %c";
+        String result;
 
         // 처리
         //성적 데이터를 키보드로 입력받기 위해
@@ -50,7 +52,8 @@ public class SungJukV2b {
 
         //println 사용시
         //4자리로 만들어주고 다시 2자리로 만들어주면 나머지 소수점은 짤림
-        mean = Math.round(mean*100.0) / 100.0;
+        mean = Math.round(mean*100) / 100.0;
+
 
 
         //학점계산은 switch문으로 처리
@@ -63,12 +66,27 @@ public class SungJukV2b {
             default: grd = '가';
         }
 
+        result = String.format(fmt, name, kor, eng, mat, sum, mean, grd);
+
         //출력
-        //printf 사용시
+
+        // printf 사용시
 //        System.out.printf("%s 학생의 총점은 %d점, 평균은 약 %.2f점이며 학점은 %c입니다 ",name, sum, mean, grd);
 
-        //println 사용시
-        System.out.println(name+" 학생의 총점은 "+sum+"점, 평균은 약"+mean+"점이며 학점은 "+grd+"입니다");
+        // println 사용시
+//        System.out.println(name+" 학생의 총점은 "+sum+"점, 평균은 약 "+mean+"점이며 학점은 "+grd+"입니다");
 
+        // 선생님 버젼
+//        System.out.println(
+//                "이름: " + name + "\n" +
+//                        "국어: " + kor + "\n" +
+//                        "영어: " + eng + "\n" +
+//                        "수학: " + mat + "\n" +
+//                        "총점: " + sum + "\n" +
+//                        "평균: " + mean + "\n" +
+//                        "학점: " + grd);
+        // 문자열 연결 연산자(+)로 문장을 만다는 경우
+        // String 변수의 특성때문에 성능저하 발생
+        System.out.println(result);
     }
 }
