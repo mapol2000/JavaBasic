@@ -27,6 +27,7 @@ public class SungJukV2 {
         int mat = 0;
         int sum = 0;
         double mean = 0.0;
+        int mean1 = (int)mean / 10;
         char grd = '가';
 
         Scanner scanner = new Scanner(System.in);
@@ -44,8 +45,7 @@ public class SungJukV2 {
         sum = kor + eng + mat;
         mean = sum / 3.0;
 
-        int mean1 = (int)mean / 10;
-
+        //스위치 문
         switch (mean1) {
             case 9:
                 grd = '수';
@@ -63,11 +63,8 @@ public class SungJukV2 {
                 grd = '가';
         }
 
+        //출력
         System.out.printf("%s 학생의 총점은 %d점, 평균은 약 %.1f점이며 학점은 %c입니다 ",name, sum, mean, grd);
-
-
-
-
 
     }
 }
