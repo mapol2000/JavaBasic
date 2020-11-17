@@ -31,7 +31,7 @@ public class SungJukV2b {
         int sum = 0;
         double mean;
         char grd;
-        String fmt = "이름: %s\n국어: %d\n 영어: %d\n 수학: %d\n 총점: %d\n 평균: %f\n 학점: %c";
+        String fmt = "이름: %s\n국어: %d\n 영어: %d\n 수학: %d\n 총점: %d\n 평균: %s\n 학점: %c";
         String result;
 
         // 처리
@@ -66,7 +66,7 @@ public class SungJukV2b {
             default: grd = '가';
         }
 
-        result = String.format(fmt, name, kor, eng, mat, sum, mean, grd);
+        result = String.format(fmt, name, kor, eng, mat, sum, String.valueOf(mean), grd);
 
         //출력
 
