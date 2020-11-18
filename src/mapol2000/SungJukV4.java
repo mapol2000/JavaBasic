@@ -7,7 +7,7 @@ import java.util.Scanner;
  * 파일명: SungJukV3
  * 작성일: 2020.11.17
  *
- * 프로그램설명: 성적처리프로그램 v3
+ * 프로그램설명: 성적처리프로그램 v4
  * 학생 3명의 성적 데이터를 키보드로 입력받아
  * 총점, 평균, 학점을 계산하고 결과 출력
  *
@@ -20,7 +20,7 @@ import java.util.Scanner;
  *
  * 단, 성적처리 결과 출력시 출력문을 하나만 사용
  */
-public class SungJukV3 {
+public class SungJukV4 {
     public static void main(String[] args) {
         // 배열변수선언
         //자료형 변수명[] = new 자료형[크기]
