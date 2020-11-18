@@ -19,9 +19,11 @@ import java.util.Scanner;
  * name, kor, eng, mat, sum, mean, grd
  *
  * 단, 성적처리 결과 출력시 출력문을 하나만 사용
+ * 메서드 기반 코드로 재작성
  */
 public class SungJukV4 {
     public static void main(String[] args) {
+
         // 배열변수선언
         //자료형 변수명[] = new 자료형[크기]
         String[] name = new String[3];
@@ -32,8 +34,17 @@ public class SungJukV4 {
         double[] mean = new double[3];
         char[] grd = new char[3];
 
-        String fmt = "이름: %s\n국어: %d\n영어: %d\n수학: %d\n총점: %d\n평균: %s\n학점: %c\n";
+        //처리
+        readSungJuk(name, kor, eng, mat);
+        computeSungJuk(kor, eng, mat, sum, mean, grd);
 
+        // 결과 출력
+        printSungJuk(name, kor, eng, mat, sum, mean, grd);
+
+    } // main
+
+    // 성적데이터 입력받기: readSungJuk
+    public static void readSungJuk(String[] name, int[] kor, int[] eng, int[] mat) {
         Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < 3; i++) {
@@ -46,35 +57,42 @@ public class SungJukV4 {
             eng[i] = sc.nextInt();
             System.out.print("수학 점수를 입력하세요: ");
             mat[i] = sc.nextInt();
-//            sc.skip("\r\n|[\n\r]"); // 아래 설명
-            
-            // 수학 성적 입력시 같이 입력된 enter키가
-            //다음 데이터(이름) 입력시 입력값으로
-            //자동으로 전달됨
-            //그러한 상황을 해결하기 위해
-            //미리 엔터키를 제거하는 코드 삽입
-
-            //nextInt가 아닌 문자로 받으면 위 skip라인은 안써도 됨
+            sc.skip("\r\n|[\n\r]"); // 아래 설명
         }
+    } // readSungJuk
 
+    // 성적데이터 총점, 평균, 학점 처리: computeSungJuk
+    public static void computeSungJuk(int[] kor, int[] eng, int[] mat, int[] sum, double[] mean, char[] grd) {
         for (int i = 0; i < 3; i++) {
             sum[i] = kor[i] + eng[i] + mat[i];
             mean[i] = sum[i] / 3.0;
 
-            switch ((int)(mean[i]/10)) {
+            switch ((int) (mean[i] / 10)) {
                 case 10:
-                case 9: grd[i] = '수';break;
-                case 8: grd[i] = '우';break;
-                case 7: grd[i] = '미';break;
-                case 6: grd[i] = '양';break;
-                default: grd[i] = '가';
+                case 9:
+                    grd[i] = '수';
+                    break;
+                case 8:
+                    grd[i] = '우';
+                    break;
+                case 7:
+                    grd[i] = '미';
+                    break;
+                case 6:
+                    grd[i] = '양';
+                    break;
+                default:
+                    grd[i] = '가';
             }
-
         }
-        for (int i = 0; i < 3; i++) {
-            System.out.printf(fmt, name[i], kor[i], eng[i], mat[i], sum[i], mean[i], grd[i]);
-        }
+    } // computeSungJuk
 
+    // 처리 결과 출력: printSungJuk
+    public static void printSungJuk(String[] name, int[] kor, int[] eng, int[] mat, int[] sum, double[] mean, char[] grd) {
+        String fmt = "이름: %s\n국어: %d\n영어: %d\n수학: %d\n총점: %.2f\n평균: %s\n학점: %c\n";
+            for (int i = 0; i < 3; i++) {
+                System.out.printf(fmt, name[i], kor[i], eng[i], mat[i], sum[i], mean[i], grd[i]);
+            }
+    } // printSungJuk
 
-    }
-}
+} // class
