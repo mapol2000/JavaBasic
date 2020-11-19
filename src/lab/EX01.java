@@ -15,7 +15,11 @@ public class EX01 {
 
         // 각 객체에 대해 변수에 값 대입
 
-        std.stdNo = 201350050;
+
+
+
+
+       /* std.stdNo = 201350050;
         std.name = "김태희";
         std.address = "경기도 고양시";
         std.birth = "1985.3.22";
@@ -36,10 +40,13 @@ public class EX01 {
         prof.name = "이순신";
         prof.mjfield = "프로그래밍";
 
+*/
+        // 매개변수를 사용하는 생성자로 객체 생성
+        Student std1 = new Student(465656, "김평구", "서울시 중랑구", "1986.5.8", "컴퓨터", "315");
 
 
         // 객체에 저장된 값 출력
-        System.out.println("--------학생-----------");
+       /* System.out.println("--------학생-----------");
         System.out.println(std.stdNo);
         System.out.println(std.name);
         System.out.println(std.address);
@@ -66,7 +73,7 @@ public class EX01 {
         System.out.println(prof.no);
         System.out.println(prof.name);
         System.out.println(prof.mjfield);
-        System.out.println("");
+        System.out.println("");*/
 
 
     }
