@@ -2,9 +2,9 @@ package lab;
 
 public class Department {
 
-    String name;
-    String phoneNo;
-    String location;
-    int head;
+    String dname;
+    String phone;
+    String office;
+    String chief;
 
 }
