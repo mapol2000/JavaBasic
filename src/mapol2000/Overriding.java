@@ -11,6 +11,7 @@ public class Overriding {
         Animal animal = new Animal();
         Cat cat = new Cat();
         Dog dog = new Dog();
+        Animal a = new Animal(); // 부모클래스를 객체화
 
         System.out.println(animal.cry());
         System.out.println(cat.cry());
