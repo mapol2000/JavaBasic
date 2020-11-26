@@ -2,27 +2,32 @@ package semiProject;
 
 import java.util.Scanner;
 
+/**
+ * EmployeeV1Main
+ * 인사정보 관리 프로그램 진입점
+ */
 public class EmployeeV1Main {
 
     public static void main(String[] args) {
 
-        EmployeeV1Service employeeV1Service = new EmployeeV1Service();
+        EmployeeV1Service empsrv = new EmployeeV1Service();
 
         Scanner sc = new Scanner(System.in);
 
 
 
         while (true) {
-            employeeV1Service.displyMenu();
+            empsrv.displyMenu();
             String menu = sc.nextLine();
 
             switch (menu) {
-                case "1": employeeV1Service.newEmpInfo(); break;
-                case "2": employeeV1Service.readEmpInfo(); break;
-                case "3": employeeV1Service.readOneEmpInfo(); break;
-                case "4": employeeV1Service.modifyEmpInfo(); break;
-                case "5": employeeV1Service.removeEmpInfo(); break;
+                case "1": empsrv.newEmpInfo(); break;
+                case "2": empsrv.readEmpInfo(); break;
+                case "3": empsrv.readOneEmpInfo(); break;
+                case "4": empsrv.modifyEmpInfo(); break;
+                case "5": empsrv.removeEmpInfo(); break;
                 case "0": System.exit(0); break;
+                default: System.out.println("잘못 입력!!");
             }
         }
 
