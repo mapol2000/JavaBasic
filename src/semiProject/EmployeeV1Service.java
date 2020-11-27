@@ -15,6 +15,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
     // 멤버변수 선언
     // 입력받은 모든 인사데이터를 저장하는 동적배열 변수 선언
     List<EmployeeVO> empdata = new ArrayList<>();
+    EmployeeVO emp = null;
 
     /**
      * 인사정보 처리 UI 출력
@@ -42,7 +43,7 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
      */
     public void newEmpInfo() {
 
-        EmployeeVO emp = new EmployeeVO(0,"", "","","","","",0,0.0,0,0);
+        emp = new EmployeeVO(0,"", "","","","","",0,0.0,0,0);
 
         Scanner sc = new Scanner(System.in);
 
@@ -85,7 +86,6 @@ public class EmployeeV1Service extends EmployeeV1GenericService {
         // 데이터 출력시 간격유지를 위해
         // 형식지정자 앞에 숫자 사용
 
-        String fmt = "%8s %8s %8s %8s %8s %8s\n";
         String fmt = "%8s %8s %8s %8s %8s %8s\n";
         System.out.printf(fmt, "empNo", "lName", "email", "jobID", "mgrID", "deptID");
 
