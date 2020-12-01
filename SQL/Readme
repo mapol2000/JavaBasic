@@ -1,0 +1,78 @@
+-- 쇼핑 테이블 생성
+create table shopping (
+	ordNo int,
+	ordDate datetime,
+	prdName char(5),
+	price int
+);
+
+-- 고객 테이블 생성
+create table customers (
+	custID 	varchar(16) primary key,
+	name 	varchar(10),
+	age 	int,
+	grade 	varchar(10),
+	job 	varchar(10),
+	points	int
+);
+
+-- 상품 테이블
+create table products (
+	prdNo 		char(4)	primary key,
+	prdName		varchar(10),
+	stock		int,
+	price		int,
+	prdMaker	varchar(10)
+);
+
+-- 주문 테이블
+create table orders (
+	ordNo	int 	primary key,
+	custID	varchar(16), -- 고객 테이블 pk
+	prdNo	char(4), 	 -- 상품 테이블 pk
+	qty		int,
+	addr	varchar(20),
+	ordDate	datetime
+);
+
+-- 외래키 설정
+-- foreign key (컬럼명)
+-- references 테이블명(컬럼명);
+
+-- 주문 - 고객 테이블간 관계설정
+-- 주문 - 상품 테이블간 관계설정
+
+create table orders2 ( -- 주문 / 고객 외래키 설정
+	ordNo	int 	primary key,
+	custID	varchar(16), -- 고객 테이블 pk
+	prdNo	char(4), 	 -- 상품 테이블 pk
+	qty		int,
+	addr	varchar(20),
+	ordDate	datetime,
+	foreign key (custID)
+	references customers (custID)
+);
+
+create table orders3 ( -- 주문 / 상품 외래키 설정
+	ordNo	int 	primary key,
+	custID	varchar(16), -- 고객 테이블 pk
+	prdNo	char(4), 	 -- 상품 테이블 pk
+	qty		int,
+	addr	varchar(20),
+	ordDate	datetime,
+	foreign key (prdNo)
+	references products (prdNo)
+);
+
+create table orders4 ( -- 주문 / 상품 / 고객 외래키 설정
+	ordNo	int 	primary key,
+	custID	varchar(16), -- 고객 테이블 pk
+	prdNo	char(4), 	 -- 상품 테이블 pk
+	qty		int,
+	addr	varchar(20),
+	ordDate	datetime,
+	foreign key (custID)
+	references customers (custID),
+	foreign key (prdNo)
+	references products (prdNo)
+);
